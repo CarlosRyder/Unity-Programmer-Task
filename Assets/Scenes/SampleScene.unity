@@ -5416,6 +5416,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6743227759511787503, guid: 7a0e446aa89944b98f276de128c71685, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1310705030}
+    - targetCorrespondingSourceObject: {fileID: 6743227759511787503, guid: 7a0e446aa89944b98f276de128c71685, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1310705034}
   m_SourcePrefab: {fileID: 100100000, guid: 7a0e446aa89944b98f276de128c71685, type: 3}
 --- !u!1 &1310705026 stripped
 GameObject:
@@ -5449,6 +5452,41 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!70 &1310705034
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1310705026}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.004187405, y: -0.34183717}
+  m_Size: {x: 0.9150692, y: 1.646585}
+  m_Direction: 0
 --- !u!1 &1317920405
 GameObject:
   m_ObjectHideFlags: 0

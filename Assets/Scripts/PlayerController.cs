@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,6 +18,7 @@ public class PlayerController : MonoBehaviour
     {
         playerRB = GetComponent<Rigidbody2D>();
     }
+
     private void Start()
     {
         animator = GameObject.Find("Player").GetComponent<Animator>();
@@ -25,9 +27,15 @@ public class PlayerController : MonoBehaviour
         idHorizontal = Animator.StringToHash("horizontal");
         idVertical = Animator.StringToHash("vertical");
 
+
     }
 
     void Update()
+    {
+        Move();
+    }
+
+    private void Move()
     {
         float inputX = Input.GetAxisRaw("Horizontal") * moveSpeed;
         float inputY = Input.GetAxisRaw("Vertical") * moveSpeed;
@@ -37,16 +45,14 @@ public class PlayerController : MonoBehaviour
         animator.SetFloat(idHorizontal, inputX);
         animator.SetFloat(idVertical, inputY);
 
-        if (inputX > 0) 
+        if (inputX > 0)
         {
-           transform.localScale=new Vector3(-0.5f, 0.5f, 0.5f);
+            transform.localScale = new Vector3(-0.5f, 0.5f, 0.5f);
         }
 
-        else if(inputX < 0) 
+        else if (inputX < 0)
         {
             transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
         }
-
     }
-
 }

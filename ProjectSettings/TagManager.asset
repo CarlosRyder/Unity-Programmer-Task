@@ -44,6 +44,9 @@ TagManager:
   - name: Ground
     uniqueID: 4017017351
     locked: 0
+  - name: Purchased outfits
+    uniqueID: 1591032979
+    locked: 0
   - name: Objects
     uniqueID: 1915378439
     locked: 0

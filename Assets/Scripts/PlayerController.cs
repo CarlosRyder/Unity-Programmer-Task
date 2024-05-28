@@ -47,12 +47,12 @@ public class PlayerController : MonoBehaviour
 
         if (inputX > 0)
         {
-            transform.localScale = new Vector3(-0.5f, 0.5f, 0.5f);
+            transform.localScale = new Vector3(-0.4f, 0.4f, 0.4f);
         }
 
         else if (inputX < 0)
         {
-            transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+            transform.localScale = new Vector3(0.4f, 0.4f, 0.4f);
         }
     }
 }

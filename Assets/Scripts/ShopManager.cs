@@ -59,6 +59,7 @@ public class ShopManager : MonoBehaviour
                 coinCounter.RemoveCoins(cost);
                 toolPurchased[toolIndex] = true;
                 Debug.Log("Tool purchased: " + selectedTool.name);
+                
             }
             else if (coinCounter.GetCoinCount() < cost)
             {
@@ -68,7 +69,6 @@ public class ShopManager : MonoBehaviour
             {
                 Debug.Log("This tool is already purchased.");
                 selectedTool.GetComponent<Image>().color = Color.gray;
-
             }
         }
         else

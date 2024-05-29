@@ -11,7 +11,6 @@ public class NewBehaviourScript : MonoBehaviour
     // Start is called before the first frame update
     void OnEnable()
     {
-        Debug.Log("GameObject enabled and OnEnable called");
         StartCoroutine(Reloj());
     }
 

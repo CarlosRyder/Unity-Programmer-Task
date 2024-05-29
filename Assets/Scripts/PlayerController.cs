@@ -12,9 +12,9 @@ public class PlayerController : MonoBehaviour
     private int idVertical;
     public GameObject playerWithoutWeapons;
     public GameObject playerWithHammer;
-    public GameObject playerWithBow;
+    public GameObject playerWithSword;
     public GameObject playerWithScythe;
-    private GameObject activePlayer; // Referencia al GameObject activo actualmente
+    private GameObject activePlayer;
 
 
     private void Awake()
@@ -24,14 +24,14 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-        GameObject[] playerObjects = { playerWithoutWeapons, playerWithHammer, playerWithBow, playerWithScythe };
+        GameObject[] playerObjects = { playerWithoutWeapons, playerWithHammer, playerWithSword, playerWithScythe };
 
         foreach (GameObject playerObject in playerObjects)
         {
             if (playerObject.activeSelf)
             {
                 SetActivePlayer(playerObject);
-                break; // Una vez que se encuentre el jugador activo, salimos del bucle
+                break;
             }
         }
 
@@ -70,19 +70,18 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    // Método para establecer el jugador activo
+
     private void SetActivePlayer(GameObject player)
     {
         if (activePlayer != null)
         {
-            activePlayer.SetActive(false); // Desactivar el jugador anteriormente activo
+            activePlayer.SetActive(false);
         }
         activePlayer = player;
-        activePlayer.SetActive(true); // Activar el nuevo jugador
-        animator = activePlayer.GetComponent<Animator>(); // Obtener el Animator del nuevo jugador
+        activePlayer.SetActive(true);
+        animator = activePlayer.GetComponent<Animator>();
     }
 
-    // Métodos para cambiar el jugador activo mediante botones
     public void SetPlayerWithoutWeaponsActive()
     {
         SetActivePlayer(playerWithoutWeapons);
@@ -95,7 +94,7 @@ public class PlayerController : MonoBehaviour
 
     public void SetPlayerWithBowActive()
     {
-        SetActivePlayer(playerWithBow);
+        SetActivePlayer(playerWithSword);
     }
 
     public void SetPlayerWithScytheActive()

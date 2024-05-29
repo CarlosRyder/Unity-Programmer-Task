@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Coin
   - StoreTrigger
+  - Sword
+  - Hammer
+  - Scythe
   layers:
   - Default
   - TransparentFX

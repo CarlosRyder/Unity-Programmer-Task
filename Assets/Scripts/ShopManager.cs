@@ -1,3 +1,4 @@
+using System.Linq.Expressions;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,7 +9,15 @@ public class ShopManager : MonoBehaviour
     private CoinCounter coinCounter;
     private Color selectedColor = new Color(82f / 255f, 145f / 255f, 203f / 255f); // Color 5291CB
     private GameObject selectedTool = null;
-    private bool[] toolPurchased; 
+    private bool[] toolPurchased;
+    public GameObject swordObject;
+    public GameObject hammerObject;
+    public GameObject scytheObject;
+    public GameObject playerWithoutWeapons;
+    public GameObject playerWithHammer;
+    public GameObject playerWithSword;
+    public GameObject playerWithScythe;
+
 
     private void Start()
     {
@@ -28,7 +37,6 @@ public class ShopManager : MonoBehaviour
         }
     }
 
-    // Method to select a tool
     public void SelectTool(GameObject button)
     {
         if (selectedTool != null)
@@ -46,7 +54,6 @@ public class ShopManager : MonoBehaviour
         selectedTool = button;
     }
 
-    // Method to buy a tool
     public void BuyTool()
     {
         if (selectedTool != null)
@@ -59,7 +66,20 @@ public class ShopManager : MonoBehaviour
                 coinCounter.RemoveCoins(cost);
                 toolPurchased[toolIndex] = true;
                 Debug.Log("Tool purchased: " + selectedTool.name);
-                
+                if (selectedTool.name == "Sword") 
+                {
+                    Debug.Log("is sword");
+                    swordObject.SetActive(true);
+                }
+                else if (selectedTool.name == "Hammer") 
+                {
+                    hammerObject.SetActive(true);
+                }
+                else if(selectedTool.name == "Scythe") 
+                {
+                    scytheObject.SetActive(true);
+                }
+
             }
             else if (coinCounter.GetCoinCount() < cost)
             {
@@ -77,7 +97,6 @@ public class ShopManager : MonoBehaviour
         }
     }
 
-    // Method to sell a tool
     public void SellTool()
     {
         if (selectedTool != null)
@@ -90,6 +109,25 @@ public class ShopManager : MonoBehaviour
                 coinCounter.AddCoins(sellPrice);
                 toolPurchased[toolIndex] = false;
                 Debug.Log("Tool sold: " + selectedTool.name);
+                if (selectedTool.name == "Sword")
+                {
+                    Debug.Log("is sword");
+                    swordObject.SetActive(false);
+                    playerWithSword.SetActive(false);
+                    playerWithoutWeapons.SetActive(true);
+                }
+                else if (selectedTool.name == "Hammer")
+                {
+                    hammerObject.SetActive(false);
+                    playerWithHammer.SetActive(false);
+                    playerWithoutWeapons.SetActive(true);
+                }
+                else if (selectedTool.name == "Scythe")
+                {
+                    scytheObject.SetActive(false);
+                    playerWithScythe.SetActive(false);
+                    playerWithoutWeapons.SetActive(true);
+                }
             }
             else
             {

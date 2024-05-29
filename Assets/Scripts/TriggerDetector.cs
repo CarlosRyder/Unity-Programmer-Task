@@ -3,6 +3,7 @@ using UnityEngine;
 public class TriggerDetector : MonoBehaviour
 {
     public GameObject uiPanel;
+    public GameObject allShopPanel;
 
     private void Start()
     {
@@ -23,7 +24,6 @@ public class TriggerDetector : MonoBehaviour
             if (uiPanel != null)
             {
                 uiPanel.SetActive(true);
-               // Debug.Log("Trigger Entered by: " + other.gameObject.name);
             }
         }
     }
@@ -35,7 +35,7 @@ public class TriggerDetector : MonoBehaviour
             if (uiPanel != null)
             {
                 uiPanel.SetActive(false);
-                //Debug.Log("Trigger Exited by: " + other.gameObject.name);
+                allShopPanel.SetActive(false);
             }
         }
     }

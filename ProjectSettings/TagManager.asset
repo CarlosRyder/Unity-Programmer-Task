@@ -52,3 +52,6 @@ TagManager:
   - name: Objects
     uniqueID: 1915378439
     locked: 0
+  - name: hammer
+    uniqueID: 1763923729
+    locked: 0

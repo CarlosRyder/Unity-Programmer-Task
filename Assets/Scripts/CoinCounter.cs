@@ -28,4 +28,23 @@ public class CoinCounter : MonoBehaviour
             coinText.text = coinCount.ToString();
         }
     }
+    public int GetCoinCount()
+    {
+        return coinCount;
+    }
+
+    private void Update()
+    {
+        UpdateCoinText(); 
+    }
+    public void RemoveCoins(int amount)
+    {
+        coinCount -= amount;
+        UpdateCoinText();
+    }
+    public void AddCoins(int amount)
+    {
+        coinCount += amount;
+        UpdateCoinText();
+    }
 }

@@ -23,7 +23,7 @@ public class TriggerDetector : MonoBehaviour
             if (uiPanel != null)
             {
                 uiPanel.SetActive(true);
-                Debug.Log("Trigger Entered by: " + other.gameObject.name);
+               // Debug.Log("Trigger Entered by: " + other.gameObject.name);
             }
         }
     }
@@ -35,7 +35,7 @@ public class TriggerDetector : MonoBehaviour
             if (uiPanel != null)
             {
                 uiPanel.SetActive(false);
-                Debug.Log("Trigger Exited by: " + other.gameObject.name);
+                //Debug.Log("Trigger Exited by: " + other.gameObject.name);
             }
         }
     }

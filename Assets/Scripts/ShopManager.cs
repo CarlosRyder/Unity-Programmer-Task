@@ -1,4 +1,6 @@
+using System.Collections;
 using System.Linq.Expressions;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -17,6 +19,14 @@ public class ShopManager : MonoBehaviour
     public GameObject playerWithHammer;
     public GameObject playerWithSword;
     public GameObject playerWithScythe;
+    public GameObject noEnoughMoney;
+    public GameObject toolAlready;
+    public GameObject noToolSelected;
+    public GameObject toolNotOwned;
+
+
+
+    public float displayDuration = 2f;
 
 
     private void Start()
@@ -65,10 +75,8 @@ public class ShopManager : MonoBehaviour
             {
                 coinCounter.RemoveCoins(cost);
                 toolPurchased[toolIndex] = true;
-                Debug.Log("Tool purchased: " + selectedTool.name);
                 if (selectedTool.name == "Sword") 
                 {
-                    Debug.Log("is sword");
                     swordObject.SetActive(true);
                 }
                 else if (selectedTool.name == "Hammer") 
@@ -83,17 +91,20 @@ public class ShopManager : MonoBehaviour
             }
             else if (coinCounter.GetCoinCount() < cost)
             {
-                Debug.Log("Not enough coins to purchase this tool.");
+                noEnoughMoney.gameObject.SetActive(true);
+                StartCoroutine(HideTextAfterDuration());
             }
             else if (toolPurchased[toolIndex])
             {
-                Debug.Log("This tool is already purchased.");
                 selectedTool.GetComponent<Image>().color = Color.gray;
+                toolAlready.gameObject.SetActive(true);
+                StartCoroutine(HideTextAfterDuration());
             }
         }
         else
         {
-            Debug.Log("No tool selected.");
+            noToolSelected.gameObject.SetActive(true);
+            StartCoroutine(HideTextAfterDuration());
         }
     }
 
@@ -108,10 +119,9 @@ public class ShopManager : MonoBehaviour
             {
                 coinCounter.AddCoins(sellPrice);
                 toolPurchased[toolIndex] = false;
-                Debug.Log("Tool sold: " + selectedTool.name);
+
                 if (selectedTool.name == "Sword")
                 {
-                    Debug.Log("is sword");
                     swordObject.SetActive(false);
                     playerWithSword.SetActive(false);
                     playerWithoutWeapons.SetActive(true);
@@ -131,12 +141,24 @@ public class ShopManager : MonoBehaviour
             }
             else
             {
-                Debug.Log("This tool is not owned.");
+                toolNotOwned.gameObject.SetActive(true);
+                StartCoroutine(HideTextAfterDuration());
             }
         }
         else
         {
-            Debug.Log("No tool selected.");
+            noToolSelected.gameObject.SetActive(true);
+            StartCoroutine(HideTextAfterDuration());
         }
+
+    }
+
+    IEnumerator HideTextAfterDuration()
+    {
+        yield return new WaitForSeconds(displayDuration);
+        noEnoughMoney.gameObject.SetActive(false);
+        noToolSelected.gameObject.SetActive(false);
+        toolAlready.gameObject.SetActive(false);
+        toolNotOwned.gameObject.SetActive(false);
     }
 }
